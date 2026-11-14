@@ -34,6 +34,8 @@ on post-fs
 
 on boot
     start mtk.plpath.utils.link
+    # Enable OTG
+    write /sys/devices/platform/odm/odm:tran_battery/OTG_CTL 1
 
 on property:persist.vendor.mtk.pl_lnk=1
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
